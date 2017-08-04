@@ -16,7 +16,7 @@ const ProductRow = (props) => (
 
 
 
-class MongoResults extends React.Component {
+class Results extends React.Component {
   constructor(props) {
     super(props);
     this.state = {data: null};
@@ -48,7 +48,7 @@ class MongoResults extends React.Component {
   }
 }
 
-module.exports=  MongoResults;
+module.exports=  Results;
 
 
 

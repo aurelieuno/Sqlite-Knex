@@ -24,14 +24,22 @@ router.route('/api/data')
     })
     .catch(function(error) { console.error(error); });
   })
-  .post(function(req,res) {
-    knex('users')
-    .insert({user_name: req.body.name, user_age: req.body.age})
-    .then(function(id) {
-      res.json({data : id});
+    .post(function(req,res) {
+
+      knex('users').insert({user_name: req.body.name, user_age: req.body.age})
+      knex.schema.createTableIfNotExists('users', function(table) {
+        table.increments('id');
+        table.string('user_name');
+        table.string('user_age');
+      })
+      .then(function(){
+          return knex('users').insert({user_name: req.body.name, user_age: req.body.age})
+      })
+      .then(function(id) {
+        res.json({data : id});
+      })
+      .catch(function(error) { console.error(error); });
     })
-    .catch(function(error) { console.error(error); });
-  })
 
 //====================================================
 var port = 3000;
