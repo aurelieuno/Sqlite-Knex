@@ -1,9 +1,6 @@
 # Project
 
-- REACT project with github API
-- axios call to external API
-- webpack with express server as a proxy setup in webpack config
-- need a server.js file
+- Sqlite with Knex basic routing
 
 - => Usage is npm run start
 
@@ -22,4 +19,6 @@
     -"react": "^15.6.1",
     -"react-dom": "^15.6.1",
     -"react-router-dom": "^4.1.1"
+    -"knex": "^0.13.0",
+    -"sqlite3": "^3.1.8"
 
